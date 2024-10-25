@@ -44,3 +44,21 @@ export const sendMessage = async (req, res) => {
     res.status(500).json({ message: "Internel Server Error" });
   }
 };
+
+export const getMessages = async (req, res) => {
+  try {
+    const { id: userToChatId } = req.params; // This is who will receive the messages
+    const senderId = req.user._id; // This is the user who will send the messages(ex: Me)
+
+    const converation = await Conversation.findOne({
+      participants: { $all: [senderId, userToChatId] },
+    }).populate("messages"); //(.populate)=> used you retrieve all the relevant fields from each Message document directly not the reference id.
+
+    if (!converation) return res.status(200).json([]); //if there is no conversation between the two users return an empty array.
+
+    res.status(200).json(converation.messages);
+  } catch (error) {
+    console.log("Error getting message: ", error.message);
+    res.status(500).json({ message: "Internel Server Error" });
+  }
+};
