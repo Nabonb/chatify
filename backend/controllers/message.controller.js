@@ -28,6 +28,14 @@ export const sendMessage = async (req, res) => {
     conversation.messages.push(newMessage._id);
   }
 
+  //Socket.io implementation here
+
+  // await conversation.save();
+  // await newMessage.save();
+
+  // This is run parallel to save both conversation and new message at the same time. This is much faster than saving them separately.
+  await Promise.all([conversation.save(), newMessage.save()]);
+
   res.status(201).json(newMessage);
 
   try {
