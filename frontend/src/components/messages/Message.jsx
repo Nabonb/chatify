@@ -1,5 +1,4 @@
 import demoUser from "../../assets/user.png";
-
 const Message = () => {
   return (
     <div className="chat chat-end">
