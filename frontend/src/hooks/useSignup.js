@@ -48,8 +48,6 @@ const useSignup = () => {
       //update the context with the user data
       setAuthUser(data);
       toast.success("Signup successful! You can now log in");
-
-      // throw new Error("Server Error"); // For testing purposes only. Remove in production.
     } catch (error) {
       toast.error(error.message);
     } finally {
