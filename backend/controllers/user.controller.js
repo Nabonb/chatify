@@ -14,6 +14,6 @@ export const getUsersForSidebar = async (req, res) => {
       "Error occurred while getting users for sidebar: ",
       error.message
     );
-    res.error(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };

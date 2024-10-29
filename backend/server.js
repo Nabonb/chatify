@@ -5,7 +5,7 @@ import connectToMongoDB from "./db/connectToMongoDB.js";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
-import cors from "cors";
+// import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.send("Hello, World!!");
 });
 
-app.use(cors()); // enable CORS for all routes
+// app.use(cors({})); // enable CORS for all routes
 app.use(express.json()); // to parse JSON requests
 app.use(cookieParser()); // to parse cookies
 

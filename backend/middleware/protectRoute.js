@@ -8,7 +8,7 @@ const protectRoute = async (req, res, next) => {
     if (!token) {
       return res
         .status(401)
-        .json({ message: "Not authorized, token is required" });
+        .json({ error: "Not authorized, token is required" });
     }
 
     // Verify Token Here
@@ -29,7 +29,7 @@ const protectRoute = async (req, res, next) => {
     next(); // If everything is fine, continue to the next middleware or route handler.
   } catch (error) {
     console.log("Error occurred while protecting route: ", error.message);
-    res.status(500).json({ message: "Intrenal Server Error" });
+    res.status(500).json({ error: "Intrenal Server Error" });
   }
 };
 

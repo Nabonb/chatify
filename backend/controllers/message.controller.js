@@ -41,7 +41,7 @@ export const sendMessage = async (req, res) => {
   try {
   } catch (error) {
     console.log("Error sending message: ", error.message);
-    res.status(500).json({ message: "Internel Server Error" });
+    res.status(500).json({ error: "Internel Server Error" });
   }
 };
 
@@ -59,6 +59,6 @@ export const getMessages = async (req, res) => {
     res.status(200).json(converation.messages);
   } catch (error) {
     console.log("Error getting message: ", error.message);
-    res.status(500).json({ message: "Internel Server Error" });
+    res.status(500).json({ error: "Internel Server Error" });
   }
 };
