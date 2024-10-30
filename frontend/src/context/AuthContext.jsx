@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   // To get user data from local storage with named key "chat-user"
   const [authUser, setAuthUser] = useState(
-    JSON.parse(localStorage.getItem("chat-user")) || null
+    JSON.parse(localStorage.getItem("user-chat")) || null
   );
 
   return (
