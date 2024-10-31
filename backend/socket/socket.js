@@ -14,6 +14,11 @@ const io = new Server(server, {
 
 const userSocketMap = {}; //{userId: socketId}
 
+// Return the socket id of the receiver if they are online. Otherwise, return null.
+export const getReceiverSocketId = (receiverId) => {
+  return userSocketMap[receiverId];
+};
+
 // io.on() is a server-side event listener. It listens for incoming connections.
 io.on("connection", (socket) => {
   console.log("User connected", socket.id);

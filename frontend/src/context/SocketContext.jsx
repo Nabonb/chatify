@@ -24,7 +24,9 @@ export const SocketContextProvider = ({ children }) => {
         setOnlineUsers(users);
       });
 
-      return () => socket.close(); // Clean up the socket when component unmounts
+      console.log(socket);
+
+      return () => socket.close(); // Completely closes the connection with the server
     } else {
       if (socket) {
         socket.close();
