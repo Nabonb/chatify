@@ -14,10 +14,6 @@ const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!!");
-});
-
 // app.use(cors({})); // enable CORS for all routes
 app.use(express.json()); // to parse JSON requests
 app.use(cookieParser()); // to parse cookies
